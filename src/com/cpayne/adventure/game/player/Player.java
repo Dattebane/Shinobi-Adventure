@@ -1,36 +1,48 @@
 package com.cpayne.adventure.game.player;
 
-import kotlin.Triple;
-
-import java.util.Set;
-
 public class Player {
     //Properties
     private String name;
     private int age;
 
-    private int x;
-    private int y;      // Coordinates
-    private int z;
+
+    private int HP;
+    private int chakra;
+
+    private int atk;
 
 
-    private int width = 1;
-    private int depth = 1;    // Dimensions
-    private int height = 2;
+    public Player(String name, int age, int HP, int chakra, int atk) {
+        this.name = name;
+        this.age = age;
 
-   //private Location location;
+        this.HP = HP;
+        this.chakra = chakra;
 
-    private int maxHP = 100;
-    private int maxChakra = 100;
+        this.atk = atk;
+    }
 
-    private int currHP;
-    private int currChakra;
+    public int getHP() {
+        return HP;
+    }
 
-    private int str;
-    private int spd;
-    private int dur;
+    public int getAtk() {
+        return atk;
+    }
 
+    public int getAge() {
+        return age;
+    }
 
-    public Player() {
+    public int getChakra() {
+        return chakra;
+    }
+
+    public void setChakra(int chakra) {
+        this.chakra = chakra;
+    }
+
+    public void setHP(int HP) {
+        this.HP = HP;
     }
 }
