@@ -1,7 +1,8 @@
 package com.cpayne.adventure.game;
 
-import com.cpayne.adventure.game.enemies.Enemy;
-import com.cpayne.adventure.game.player.Player;
+import com.cpayne.adventure.game.shinobi.enemies.Enemy;
+import com.cpayne.adventure.game.shinobi.player.Player;
+import com.cpayne.adventure.game.jutsu.Jutsu;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -50,6 +51,7 @@ public class Main {
                 String input = in.nextLine();
                 if(input.equals("1") || input.toLowerCase().contains("attack")){
                     int damageDealt = rand.nextInt(you.getAtk());
+                    //you.useJutsu(curr);
                     int damageTaken = rand.nextInt(curr.getAtk());
                     curr.setHP(curr.getHP() - damageDealt);
                     you.setHP(you.getHP()- damageTaken);

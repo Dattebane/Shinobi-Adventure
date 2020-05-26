@@ -1,8 +1,10 @@
-package com.cpayne.adventure.game.enemies;
+package com.cpayne.adventure.game.shinobi.enemies;
+
+import com.cpayne.adventure.game.shinobi.Shinobi;
 
 import java.util.Random;
 
-public class Enemy {
+public class Enemy extends Shinobi {
 
 
     // Properties
@@ -25,6 +27,21 @@ public class Enemy {
         return atk;
     }
 
+    @Override
+    public int getAge() {
+        return 0;
+    }
+
+    @Override
+    public int getChakra() {
+        return 0;
+    }
+
+    @Override
+    public void setChakra(int chakra) {
+
+    }
+
     public int getHP() {
         return HP;
     }
@@ -35,5 +52,10 @@ public class Enemy {
 
     public void setHP(int currHP) {
         this.HP = currHP;
+    }
+
+    @Override
+    public void useJutsu(Shinobi target) {
+
     }
 }

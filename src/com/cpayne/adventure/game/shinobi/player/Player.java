@@ -1,6 +1,10 @@
-package com.cpayne.adventure.game.player;
+package com.cpayne.adventure.game.shinobi.player;
 
-public class Player {
+import com.cpayne.adventure.game.shinobi.Shinobi;
+import com.cpayne.adventure.game.shinobi.enemies.Enemy;
+import com.cpayne.adventure.game.jutsu.Jutsu;
+
+public class Player extends Shinobi {
     //Properties
     private String name;
     private int age;
@@ -22,18 +26,27 @@ public class Player {
         this.atk = atk;
     }
 
+    @Override
+    public String getName(){
+        return name;
+    }
+
+    @Override
     public int getHP() {
         return HP;
     }
 
+    @Override
     public int getAtk() {
         return atk;
     }
 
+    @Override
     public int getAge() {
         return age;
     }
 
+    @Override
     public int getChakra() {
         return chakra;
     }
@@ -42,7 +55,14 @@ public class Player {
         this.chakra = chakra;
     }
 
+    @Override
     public void setHP(int HP) {
         this.HP = HP;
     }
+
+    @Override
+    public void useJutsu(Shinobi target) {
+        new Jutsu(this, target);
+    }
+
 }
