@@ -1,5 +1,6 @@
 package com.cpayne.adventure.game.shinobi.player;
 
+import com.cpayne.adventure.game.jutsu.FireStyleJutsu;
 import com.cpayne.adventure.game.shinobi.Shinobi;
 import com.cpayne.adventure.game.shinobi.enemies.Enemy;
 import com.cpayne.adventure.game.jutsu.Jutsu;
@@ -14,6 +15,7 @@ public class Player extends Shinobi {
     private int chakra;
 
     private int atk;
+    private int burnCounter = 0;
 
 
     public Player(String name, int age, int HP, int chakra, int atk) {
@@ -63,6 +65,15 @@ public class Player extends Shinobi {
     @Override
     public void useJutsu(Shinobi target) {
         new Jutsu(this, target);
+    }
+
+    @Override
+    public void burn(FireStyleJutsu fireStyleJutsu) {
+        if (burnCounter > 0) {
+            this.setHP(this.getHP() - fireStyleJutsu.getDamage());
+            this.burnCounter = fireStyleJutsu.getBurnDuration();
+            this.burnCounter--;
+        }
     }
 
 }

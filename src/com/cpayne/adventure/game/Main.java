@@ -21,6 +21,7 @@ public class Main {
 
         // Player Variables
         Player you = new Player("Nini", 20, 100, 100, 50);
+
         int numPots = 3;
 
 
@@ -45,19 +46,44 @@ public class Main {
                 System.out.println("\t"+ currName + "'s HP: " + curr.getHP());
                 System.out.println("\n\tWhat would you like to do?");
                 System.out.println("\t1. Attack");
-                System.out.println("\t2. Drink Health Potion (" + numPots + "2)");
+                System.out.println("\t2. Drink Health Potion (" + numPots + ")");
                 System.out.println("\t3. Run");
 
                 String input = in.nextLine();
                 if(input.equals("1") || input.toLowerCase().contains("attack")){
-                    int damageDealt = rand.nextInt(you.getAtk());
-                    //you.useJutsu(curr);
-                    int damageTaken = rand.nextInt(curr.getAtk());
-                    curr.setHP(curr.getHP() - damageDealt);
-                    you.setHP(you.getHP()- damageTaken);
+                    boolean attacking = true;
+//                    int damageDealt = rand.nextInt(you.getAtk());
+//                    //you.useJutsu(curr);
+//                    int damageTaken = rand.nextInt(curr.getAtk());
+//                    curr.setHP(curr.getHP() - damageDealt);
+//                    you.setHP(you.getHP()- damageTaken);
+                    while (attacking && curr.getHP() > 0){
+                        System.out.println("\tHow do you attack? ");
+                        System.out.println("\t\t1. Ninjutsu");
+                        System.out.println("\t\t2. Taijutu");
+                        System.out.println("\t\t3. Back");
+                        String input2 = in.nextLine();
+                        if(input2.equals("1")){
+                            you.useJutsu(curr);
+                            int damageTaken = rand.nextInt(curr.getAtk());
+                            you.setHP(you.getHP()- damageTaken);
 
-                    System.out.println("\t> You strike the "+ currName + "for " + damageDealt + " damage.");
-                    System.out.println("\t> You receive " + damageTaken + " in retaliation.");
+                            System.out.println("\t> You receive " + damageTaken + " in retaliation.");
+                            attacking = false;
+                        } else if (input2.equals("2")){
+                            int damageDealt = rand.nextInt(you.getAtk());
+                            int damageTaken = rand.nextInt(curr.getAtk());
+                            curr.setHP(curr.getHP() - damageDealt);
+                            you.setHP(you.getHP()- damageTaken);
+
+                            System.out.println("\t> You strike the "+ currName + "for " + damageDealt + " damage.");
+                            System.out.println("\t> You receive " + damageTaken + " in retaliation.");
+                            attacking = false;
+                        } else if (input2.equals("3")){
+                            attacking = false;
+                        }
+                    }
+
 
                     if(you.getHP() < 1){
                         System.out.println("You died.");

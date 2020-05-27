@@ -4,8 +4,10 @@ import com.cpayne.adventure.game.shinobi.Shinobi;
 
 public class Jutsu {
     private String name;
+
     private int damage;
     private int chakraCost;
+
     private Shinobi user;
     private Shinobi target;
 
@@ -18,9 +20,14 @@ public class Jutsu {
         this.user = user;
         this.target = target;
 
-        target.setHP(target.getHP() - damage);
+        if(user.getChakra() >= chakraCost){
+            target.setHP(target.getHP() - damage);
+            user.setChakra(user.getChakra() - chakraCost);
 
-        System.out.println(user.getName() + " has used " + name + "!");
+            System.out.println("\t> " + user.getName() + " has used " + name + "! " + damage + " damage dealt!");
+        } else {
+            System.out.println("\t> You try to use a jutsu that costs too much chakra");
+        }
     }
 
     public int getDamage() {

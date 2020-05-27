@@ -1,5 +1,6 @@
 package com.cpayne.adventure.game.shinobi;
 
+import com.cpayne.adventure.game.jutsu.FireStyleJutsu;
 import com.cpayne.adventure.game.jutsu.Jutsu;
 import com.cpayne.adventure.game.shinobi.enemies.Enemy;
 
@@ -13,6 +14,10 @@ public abstract class Shinobi {
     int chakra = 100;
 
     int atk = 1;
+
+    boolean isBurning = false;
+    boolean isPoisoned = false;
+    boolean isGenjutsud = false;
 
 
     public abstract String getName();
@@ -30,4 +35,6 @@ public abstract class Shinobi {
     public abstract void setHP(int HP);
 
     public abstract void useJutsu(Shinobi target);
+
+    public abstract void burn(FireStyleJutsu fireStyleJutsu);
 }

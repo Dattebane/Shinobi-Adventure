@@ -19,7 +19,7 @@ public class Enemy extends Shinobi {
     public Enemy() {
         name = names[rand.nextInt(names.length)];
         HP = rand.nextInt(100);
-        atk = rand.nextInt(50);
+        atk = 1 + rand.nextInt(50);
     }
 
     public int getAtk() {
