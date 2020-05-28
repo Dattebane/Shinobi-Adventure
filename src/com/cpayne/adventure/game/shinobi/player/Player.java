@@ -1,7 +1,5 @@
 package com.cpayne.adventure.game.shinobi.player;
 
-import com.cpayne.adventure.game.jutsu.FireStyle;
-import com.cpayne.adventure.game.jutsu.FireballJutsu;
 import com.cpayne.adventure.game.jutsu.Jutsu;
 import com.cpayne.adventure.game.shinobi.Shinobi;
 
@@ -14,18 +12,21 @@ public class Player extends Shinobi {
     private Jutsu[] jutsus = {FireballJutsu};
 
     private int HP = 1000;
+    private int maxHP = HP;
     private int chakra = 100;
 
     private int atk;
+    private int def;
 
 
-    public Player(String name, int age, int chakra, int atk) {
+    public Player(String name, int age, int chakra, int atk, int def) {
         this.name = name;
         this.age = age;
 
         this.chakra = chakra;
 
         this.atk = atk;
+        this.def = def;
     }
 
     @Override
@@ -61,5 +62,25 @@ public class Player extends Shinobi {
     @Override
     public void setAtk(int atk) {
         this.atk = atk;
+    }
+
+    @Override
+    public int getDef() {
+        return def;
+    }
+
+    @Override
+    public void setDef(int def) {
+        this.def = def;
+    }
+
+    @Override
+    public int getMaxHP() {
+        return maxHP;
+    }
+
+    @Override
+    public void setMaxHP(int maxHP) {
+        this.maxHP = maxHP;
     }
 }

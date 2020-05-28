@@ -10,6 +10,7 @@ public abstract class Shinobi {
     private int lvl = 1;
 
 
+    private int maxHP;
     private int HP;
     private int chakra;
 
@@ -19,13 +20,13 @@ public abstract class Shinobi {
     private boolean isBurning = false;
     private int burnDuration = 0;
     private int burnDMG = 0;
+    private FireStyle burnReason;
 
     private boolean isPoisoned = false;
     private boolean isGenjutsud = false;
 
     public void attack(Shinobi target, Jutsu attack){
         attack.applyEffects(target);
-        //System.out.println("\t Shinobi Attack Method Called");
     }
 
     public String getName() {
@@ -94,4 +95,16 @@ public abstract class Shinobi {
     public void setBurnDMG(FireStyle jutsu) {
         this.burnDMG = jutsu.getBurnAmount();
     }
+
+    public FireStyle getBurnReason() {
+        return burnReason;
+    }
+
+    public void setBurnReason(FireStyle burnReason) {
+        this.burnReason = burnReason;
+    }
+
+    public abstract int getMaxHP();
+
+    public abstract void setMaxHP(int maxHP);
 }

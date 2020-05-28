@@ -17,7 +17,7 @@ public class Taijutsu extends Jutsu {
     @Override
     public void applyEffects(Shinobi target) {
         this.target = target;
-        target.setHP(target.getHP() - rand.nextInt(getDMG(user,target)));
+        target.setHP(target.getHP() - getDMG(user,target));
     }
 
     @Override
@@ -26,6 +26,6 @@ public class Taijutsu extends Jutsu {
     }
 
     public int getDMG(Shinobi user, Shinobi target) {
-        return user.getAtk();
+        return Math.max(0,rand.nextInt(user.getAtk()) - target.getDef());
     }
 }

@@ -1,11 +1,9 @@
 package com.cpayne.adventure.game;
 
-import com.cpayne.adventure.game.jutsu.FireStyle;
 import com.cpayne.adventure.game.jutsu.FireballJutsu;
 import com.cpayne.adventure.game.jutsu.Taijutsu;
 import com.cpayne.adventure.game.shinobi.enemies.Enemy;
 import com.cpayne.adventure.game.shinobi.player.Player;
-import com.cpayne.adventure.game.jutsu.Jutsu;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -24,7 +22,7 @@ public class Main {
         // Game Variables
 
         // Player Variables
-        Player you = new Player("Nini", 20, 100, 80);
+        Player you = new Player("Nini", 20, 100, 1000, 1000);
 
         int numPots = 3;
 
@@ -46,8 +44,27 @@ public class Main {
             System.out.println("\t# " + currName + " appeared! #\n");
             //      # Skeleton has appeared! #
             while(curr.getHP() > 0){
-                System.out.println("\tYour HP: "+ you.getHP());
-                System.out.println("\t"+ currName + "'s HP: " + curr.getHP());
+                //Player Health Bar
+                System.out.print("\n\tYour HP: "+ you.getHP() + ":");
+                for(int i = 0; i < you.getMaxHP()/10; i++){
+                    if (i <= (you.getHP()/10)){
+                        System.out.print("▇");
+                    } else {
+                        System.out.print("_");
+                    }
+                }
+                System.out.println();
+
+                //Enemy Health Bar
+                System.out.print("\t"+ currName + "'s HP: " + curr.getHP() + ":");
+                for(int i = 0; i < curr.getMaxHP()/10; i++){
+                    if (i <= (curr.getHP()/10)){
+                        System.out.print("▇");
+                    } else {
+                        System.out.print("_");
+                    }
+                }
+                System.out.println();
                 System.out.println("\n\tWhat would you like to do?");
                 System.out.println("\t1. Attack");
                 System.out.println("\t2. Drink Health Potion (" + numPots + ")");
@@ -70,21 +87,28 @@ public class Main {
                         if(input2.equals("1")){
                             FireballJutsu fireBallJutsu = new FireballJutsu(you);
                             you.attack(curr, fireBallJutsu);
-                            int damageDealt = fireBallJutsu.getDMG(you,curr);
-                            int damageTaken = 0; //rand.nextInt(curr.getAtk());
-                            you.setHP(you.getHP()- damageTaken);
 
-                            System.out.println("\t> You deal " + damageDealt + " with your Fire Ball Jutsu!");
+                            Taijutsu enemyTaijutsu = new Taijutsu(curr);
+                            curr.attack(you, enemyTaijutsu);
+
+                            int damageDealt = fireBallJutsu.getDMG(you,curr);
+                            int damageTaken = enemyTaijutsu.getDMG(curr, you);
+                            System.out.println(damageTaken);
+
+                            System.out.println("\t> You deal " + damageDealt + " damage with your Fire Ball Jutsu!");
                             System.out.println("\t> You receive " + damageTaken + " in retaliation.");
 
                             attacking = false;
                         } else if (input2.equals("2")){
                             Taijutsu playerTaijutsu = new Taijutsu(you);
                             Taijutsu enemyTaijutsu = new Taijutsu(curr);
+
                             you.attack(curr, playerTaijutsu);
                             curr.attack(you, enemyTaijutsu);
-                            int damageDealt = playerTaijutsu.getDMG(you,curr); //rand.nextInt(you.getAtk());
-                            int damageTaken = enemyTaijutsu.getDMG(curr, you); //rand.nextInt(curr.getAtk());
+
+                            int damageDealt = playerTaijutsu.getDMG(you,curr);
+                            int damageTaken = enemyTaijutsu.getDMG(curr, you);
+
                             curr.setHP(curr.getHP() - damageDealt);
                             you.setHP(you.getHP()- damageTaken);
 
@@ -125,6 +149,9 @@ public class Main {
 
                 // Status Effect Calculation
                 if(curr.getBurnDuration() > 0){
+                    if(curr.getBurnDuration() == curr.getBurnReason().getBurnDuration()){
+                        System.out.println("\t> "+ curr.getName() + " has been burnt by Fire Style: " + curr.getBurnReason().getName() + "!!!");
+                    }
                     curr.setBurnDuration(curr.getBurnDuration() - 1);
                     curr.setHP(curr.getHP() - curr.getBurnDMG());
                     System.out.println("\t> " + curr.getName() + " takes " + curr.getBurnDMG() + " burn damage! ");
