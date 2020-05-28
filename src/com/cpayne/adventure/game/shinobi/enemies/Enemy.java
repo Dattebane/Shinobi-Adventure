@@ -22,40 +22,28 @@ public class Enemy extends Shinobi {
         atk = 1 + rand.nextInt(50);
     }
 
-    public int getAtk() {
-        int atk = this.atk;
-        return atk;
+    @Override
+    public String getName() {
+        return name;
     }
 
     @Override
-    public int getAge() {
-        return 0;
-    }
-
-    @Override
-    public int getChakra() {
-        return 0;
-    }
-
-    @Override
-    public void setChakra(int chakra) {
-
-    }
-
     public int getHP() {
         return HP;
     }
 
-    public String getName(){
-        return this.name;
-    }
-
-    public void setHP(int currHP) {
-        this.HP = currHP;
+    @Override
+    public void setHP(int HP) {
+        this.HP = HP;
     }
 
     @Override
-    public void useJutsu(Shinobi target) {
+    public int getAtk() {
+        return atk;
+    }
 
+    @Override
+    public void setAtk(int atk) {
+        this.atk = atk;
     }
 }

@@ -1,9 +1,7 @@
 package com.cpayne.adventure.game.shinobi.player;
 
-import com.cpayne.adventure.game.jutsu.FireStyleJutsu;
-import com.cpayne.adventure.game.shinobi.Shinobi;
-import com.cpayne.adventure.game.shinobi.enemies.Enemy;
 import com.cpayne.adventure.game.jutsu.Jutsu;
+import com.cpayne.adventure.game.shinobi.Shinobi;
 
 public class Player extends Shinobi {
     //Properties
@@ -11,11 +9,10 @@ public class Player extends Shinobi {
     private int age;
 
 
-    private int HP;
-    private int chakra;
+    private int HP = 100;
+    private int chakra = 100;
 
     private int atk;
-    private int burnCounter = 0;
 
 
     public Player(String name, int age, int HP, int chakra, int atk) {
@@ -28,9 +25,13 @@ public class Player extends Shinobi {
         this.atk = atk;
     }
 
+    public void attack(Shinobi target, Jutsu attack){
+        attack.applyEffects(target);
+    }
+
     @Override
-    public String getName(){
-        return name;
+    public String getName() {
+        return super.getName();
     }
 
     @Override
@@ -39,13 +40,8 @@ public class Player extends Shinobi {
     }
 
     @Override
-    public int getAtk() {
-        return atk;
-    }
-
-    @Override
-    public int getAge() {
-        return age;
+    public void setHP(int HP) {
+        this.HP = HP;
     }
 
     @Override
@@ -53,27 +49,18 @@ public class Player extends Shinobi {
         return chakra;
     }
 
+    @Override
     public void setChakra(int chakra) {
         this.chakra = chakra;
     }
 
     @Override
-    public void setHP(int HP) {
-        this.HP = HP;
+    public int getAtk() {
+        return atk;
     }
 
     @Override
-    public void useJutsu(Shinobi target) {
-        new Jutsu(this, target);
+    public void setAtk(int atk) {
+        this.atk = atk;
     }
-
-    @Override
-    public void burn(FireStyleJutsu fireStyleJutsu) {
-        if (burnCounter > 0) {
-            this.setHP(this.getHP() - fireStyleJutsu.getDamage());
-            this.burnCounter = fireStyleJutsu.getBurnDuration();
-            this.burnCounter--;
-        }
-    }
-
 }

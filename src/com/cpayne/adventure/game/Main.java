@@ -1,5 +1,6 @@
 package com.cpayne.adventure.game;
 
+import com.cpayne.adventure.game.jutsu.FireStyle;
 import com.cpayne.adventure.game.shinobi.enemies.Enemy;
 import com.cpayne.adventure.game.shinobi.player.Player;
 import com.cpayne.adventure.game.jutsu.Jutsu;
@@ -64,7 +65,7 @@ public class Main {
                         System.out.println("\t\t3. Back");
                         String input2 = in.nextLine();
                         if(input2.equals("1")){
-                            you.useJutsu(curr);
+                            you.attack(curr, new FireStyle(you));
                             int damageTaken = rand.nextInt(curr.getAtk());
                             you.setHP(you.getHP()- damageTaken);
 
@@ -121,8 +122,8 @@ public class Main {
             System.out.println(" # You have " + you.getHP() + " HP left. # ");
             if (rand.nextInt(100) < potDropChance){
                 numPots++;
+                System.out.println(" # The enemy dropped a health potion! # ");
             }
-            System.out.println(" # The enemy dropped a health potion! # ");
             System.out.println(" # You now have " + numPots + " health potion(s). # ");
             System.out.println("--------------------------------------------------------");
             System.out.println("What would you like to do now?");

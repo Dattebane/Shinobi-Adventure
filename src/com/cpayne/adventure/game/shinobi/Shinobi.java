@@ -1,40 +1,61 @@
 package com.cpayne.adventure.game.shinobi;
 
-import com.cpayne.adventure.game.jutsu.FireStyleJutsu;
-import com.cpayne.adventure.game.jutsu.Jutsu;
-import com.cpayne.adventure.game.shinobi.enemies.Enemy;
-
 public abstract class Shinobi {
     //Properties
-    String name = "";
-    int age = 0;
+    private String name = "";
+    private int age = 0;
+    private int lvl = 1;
 
 
-    int HP = 100;
-    int chakra = 100;
+    private int HP;
+    private int chakra;
 
-    int atk = 1;
+    private int atk;
+    private int def;
 
-    boolean isBurning = false;
-    boolean isPoisoned = false;
-    boolean isGenjutsud = false;
+    private boolean isBurning = false;
+    private boolean isPoisoned = false;
+    private boolean isGenjutsud = false;
 
 
-    public abstract String getName();
+    public String getName() {
+        return this.name;
+    }
 
-    public abstract int getHP();
 
-    public abstract int getAtk();
+    public int getAge() {
+        return age;
+    }
 
-    public abstract int getAge();
+    public int getHP() {
+        return this.HP;
+    }
 
-    public abstract int getChakra();
+    public void setHP(int HP) {
+        this.HP = HP;
+    }
 
-    public abstract void setChakra(int chakra);
+    public int getChakra() {
+        return chakra;
+    }
 
-    public abstract void setHP(int HP);
+    public void setChakra(int chakra) {
+        this.chakra = chakra;
+    }
 
-    public abstract void useJutsu(Shinobi target);
+    public int getAtk() {
+        return atk;
+    }
 
-    public abstract void burn(FireStyleJutsu fireStyleJutsu);
+    public void setAtk(int atk) {
+        this.atk = atk;
+    }
+
+    public int getDef() {
+        return def;
+    }
+
+    public void setDef(int def) {
+        this.def = def;
+    }
 }
