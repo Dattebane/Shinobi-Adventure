@@ -18,12 +18,13 @@ public class FireballJutsu extends FireStyle {
 
     @Override
     public void applyEffects(Shinobi target) {
-        target.setHP(target.getHP() - getBaseDMG(user, target));
+        target.setHP(target.getHP() - getDMG(user, target));
         user.setChakra(user.getChakra() - chakraCost);
         burn(target, this);
     }
 
-    public int getBaseDMG(Shinobi user, Shinobi target){
+    @Override
+    public int getDMG(Shinobi user, Shinobi target){
         return 10;
     }
 

@@ -18,6 +18,8 @@ public abstract class FireStyle extends Ninjutsu {
 
     public abstract int getBurnDuration();
 
+    public abstract int getDMG(Shinobi user, Shinobi target);
+
     public abstract int getBurnAmount();
 
     public abstract String getName();

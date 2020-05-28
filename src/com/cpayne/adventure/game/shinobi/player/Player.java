@@ -13,17 +13,16 @@ public class Player extends Shinobi {
     private Jutsu FireballJutsu;
     private Jutsu[] jutsus = {FireballJutsu};
 
-    private int HP = 100;
+    private int HP = 1000;
     private int chakra = 100;
 
     private int atk;
 
 
-    public Player(String name, int age, int HP, int chakra, int atk) {
+    public Player(String name, int age, int chakra, int atk) {
         this.name = name;
         this.age = age;
 
-        this.HP = HP;
         this.chakra = chakra;
 
         this.atk = atk;

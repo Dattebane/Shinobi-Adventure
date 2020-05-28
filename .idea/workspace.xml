@@ -2,16 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2a35a16-12b9-4236-a4f9-3a48e005ce8e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/cipay.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/cpayne/adventure/game/jutsu/FireballJutsu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/cpayne/adventure/game/jutsu/Taijutsu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Shinobi_Adventure/com/cpayne/adventure/game/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Shinobi_Adventure/com/cpayne/adventure/game/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/cpayne/adventure/game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cpayne/adventure/game/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/cpayne/adventure/game/jutsu/FireStyle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cpayne/adventure/game/jutsu/FireStyle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/cpayne/adventure/game/jutsu/FireballJutsu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cpayne/adventure/game/jutsu/FireballJutsu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/cpayne/adventure/game/jutsu/Jutsu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cpayne/adventure/game/jutsu/Jutsu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/cpayne/adventure/game/jutsu/Ninjutsu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cpayne/adventure/game/jutsu/Ninjutsu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/cpayne/adventure/game/shinobi/Shinobi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cpayne/adventure/game/shinobi/Shinobi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/cpayne/adventure/game/shinobi/enemies/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cpayne/adventure/game/shinobi/enemies/Enemy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/cpayne/adventure/game/shinobi/player/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cpayne/adventure/game/shinobi/player/Player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -119,7 +116,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590635597124</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Fire Style Burning fully operational">
+      <created>1590675783235</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1590675783235</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -128,41 +132,46 @@
     <MESSAGE value="Added Jutsu!" />
     <MESSAGE value="Beginning to add jutsu styles" />
     <MESSAGE value="Refactored Jutsu class structure" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored Jutsu class structure" />
+    <MESSAGE value="Fire Style Burning fully operational" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fire Style Burning fully operational" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser" timestamp="1590634046565">
+    <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser" timestamp="1590677101468">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1590634046565" />
+    <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1590677101468" />
     <state x="743" y="414" width="434" height="218" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1590675733993">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="743" y="414" width="434" height="218" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040@0.0.1920.1040" timestamp="1590675733993" />
-    <state x="584" y="88" key="CommitChangelistDialog2" timestamp="1590635595471">
+    <state x="584" y="88" key="CommitChangelistDialog2" timestamp="1590675782019">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="584" y="88" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1590635595471" />
-    <state width="1877" height="238" key="GridCell.Tab.0.bottom" timestamp="1590675635412">
+    <state x="584" y="88" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1590675782019" />
+    <state width="1877" height="238" key="GridCell.Tab.0.bottom" timestamp="1590677495241">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="238" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590675635412" />
-    <state width="1877" height="238" key="GridCell.Tab.0.center" timestamp="1590675635412">
+    <state width="1877" height="238" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590677495241" />
+    <state width="1877" height="238" key="GridCell.Tab.0.center" timestamp="1590677495241">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="238" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590675635412" />
-    <state width="1877" height="238" key="GridCell.Tab.0.left" timestamp="1590675635411">
+    <state width="1877" height="238" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590677495241" />
+    <state width="1877" height="238" key="GridCell.Tab.0.left" timestamp="1590677495240">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="238" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590675635411" />
-    <state width="1877" height="238" key="GridCell.Tab.0.right" timestamp="1590675635412">
+    <state width="1877" height="238" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590677495240" />
+    <state width="1877" height="238" key="GridCell.Tab.0.right" timestamp="1590677495241">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="238" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590675635412" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1590635604796">
+    <state width="1877" height="238" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590677495241" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1590675785239">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1590635604796" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1590675785239" />
+    <state x="755" y="267" key="refactoring.ChangeSignatureDialog" timestamp="1590677104049">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="755" y="267" key="refactoring.ChangeSignatureDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590677104049" />
     <state x="143" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1590637043742">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

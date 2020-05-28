@@ -2,6 +2,7 @@ package com.cpayne.adventure.game;
 
 import com.cpayne.adventure.game.jutsu.FireStyle;
 import com.cpayne.adventure.game.jutsu.FireballJutsu;
+import com.cpayne.adventure.game.jutsu.Taijutsu;
 import com.cpayne.adventure.game.shinobi.enemies.Enemy;
 import com.cpayne.adventure.game.shinobi.player.Player;
 import com.cpayne.adventure.game.jutsu.Jutsu;
@@ -16,13 +17,14 @@ public class Main {
         Scanner in = new Scanner(System.in);
         Random rand = new Random();
 
+
         boolean running = true;
 
 
         // Game Variables
 
         // Player Variables
-        Player you = new Player("Nini", 20, 100, 100, 50);
+        Player you = new Player("Nini", 20, 100, 80);
 
         int numPots = 3;
 
@@ -68,7 +70,7 @@ public class Main {
                         if(input2.equals("1")){
                             FireballJutsu fireBallJutsu = new FireballJutsu(you);
                             you.attack(curr, fireBallJutsu);
-                            int damageDealt = fireBallJutsu.getBaseDMG(you,curr);
+                            int damageDealt = fireBallJutsu.getDMG(you,curr);
                             int damageTaken = 0; //rand.nextInt(curr.getAtk());
                             you.setHP(you.getHP()- damageTaken);
 
@@ -77,8 +79,12 @@ public class Main {
 
                             attacking = false;
                         } else if (input2.equals("2")){
-                            int damageDealt = 3; //rand.nextInt(you.getAtk());
-                            int damageTaken = 0; //rand.nextInt(curr.getAtk());
+                            Taijutsu playerTaijutsu = new Taijutsu(you);
+                            Taijutsu enemyTaijutsu = new Taijutsu(curr);
+                            you.attack(curr, playerTaijutsu);
+                            curr.attack(you, enemyTaijutsu);
+                            int damageDealt = playerTaijutsu.getDMG(you,curr); //rand.nextInt(you.getAtk());
+                            int damageTaken = enemyTaijutsu.getDMG(curr, you); //rand.nextInt(curr.getAtk());
                             curr.setHP(curr.getHP() - damageDealt);
                             you.setHP(you.getHP()- damageTaken);
 
