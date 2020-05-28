@@ -1,5 +1,8 @@
 package com.cpayne.adventure.game.shinobi;
 
+import com.cpayne.adventure.game.jutsu.FireStyle;
+import com.cpayne.adventure.game.jutsu.Jutsu;
+
 public abstract class Shinobi {
     //Properties
     private String name = "";
@@ -14,9 +17,16 @@ public abstract class Shinobi {
     private int def;
 
     private boolean isBurning = false;
+    private int burnDuration = 0;
+    private int burnDMG = 0;
+
     private boolean isPoisoned = false;
     private boolean isGenjutsud = false;
 
+    public void attack(Shinobi target, Jutsu attack){
+        attack.applyEffects(target);
+        //System.out.println("\t Shinobi Attack Method Called");
+    }
 
     public String getName() {
         return this.name;
@@ -57,5 +67,31 @@ public abstract class Shinobi {
 
     public void setDef(int def) {
         this.def = def;
+    }
+
+    public boolean isBurning() {
+        return isBurning;
+    }
+
+    public void setBurning(boolean burning) {
+        isBurning = burning;
+    }
+
+    public int getBurnDuration() {
+        return burnDuration;
+    }
+
+    public void setBurnDuration(int burn) {
+        this.burnDuration = burn;
+    }
+
+    // Get the amount of damage the next burn tick will take
+    public int getBurnDMG() {
+        return burnDMG;
+    }
+
+    // Set the amount of damage the next
+    public void setBurnDMG(FireStyle jutsu) {
+        this.burnDMG = jutsu.getBurnAmount();
     }
 }

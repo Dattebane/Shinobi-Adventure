@@ -1,5 +1,7 @@
 package com.cpayne.adventure.game.shinobi.player;
 
+import com.cpayne.adventure.game.jutsu.FireStyle;
+import com.cpayne.adventure.game.jutsu.FireballJutsu;
 import com.cpayne.adventure.game.jutsu.Jutsu;
 import com.cpayne.adventure.game.shinobi.Shinobi;
 
@@ -8,6 +10,8 @@ public class Player extends Shinobi {
     private String name;
     private int age;
 
+    private Jutsu FireballJutsu;
+    private Jutsu[] jutsus = {FireballJutsu};
 
     private int HP = 100;
     private int chakra = 100;
@@ -23,10 +27,6 @@ public class Player extends Shinobi {
         this.chakra = chakra;
 
         this.atk = atk;
-    }
-
-    public void attack(Shinobi target, Jutsu attack){
-        attack.applyEffects(target);
     }
 
     @Override

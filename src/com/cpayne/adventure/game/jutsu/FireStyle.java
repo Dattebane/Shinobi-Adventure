@@ -2,24 +2,23 @@ package com.cpayne.adventure.game.jutsu;
 
 import com.cpayne.adventure.game.shinobi.Shinobi;
 
-public class FireStyle extends Ninjutsu {
-    private int dmg;
-    private int chakraCost;
-    private Shinobi user;
-
+public abstract class FireStyle extends Ninjutsu {
     public FireStyle(Shinobi user) {
         super(user);
-        this.user = user;
     }
 
-    @Override
-    public void applyEffects(Shinobi target) {
-        target.setHP(target.getHP() - getDmg(user, target));
-        user.setChakra(user.getChakra() - chakraCost);
-        // TODO: Add actual fire effect.
-    }
+    public abstract void applyEffects(Shinobi target);
 
-    public int getDmg(Shinobi user, Shinobi target){
-        return user.getAtk()/2;
-    }
+    protected void burn(Shinobi target, FireStyle jutsu){
+        target.setBurning(true);
+        target.setBurnDuration(jutsu.getBurnDuration());
+        target.setBurnDMG(jutsu);
+        System.out.println("\t> "+ target.getName() + " has been burnt by Fire Style: " + jutsu.getName() + "!!!");
+    };
+
+    public abstract int getBurnDuration();
+
+    public abstract int getBurnAmount();
+
+    public abstract String getName();
 }

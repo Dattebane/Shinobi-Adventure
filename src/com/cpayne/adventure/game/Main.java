@@ -1,6 +1,7 @@
 package com.cpayne.adventure.game;
 
 import com.cpayne.adventure.game.jutsu.FireStyle;
+import com.cpayne.adventure.game.jutsu.FireballJutsu;
 import com.cpayne.adventure.game.shinobi.enemies.Enemy;
 import com.cpayne.adventure.game.shinobi.player.Player;
 import com.cpayne.adventure.game.jutsu.Jutsu;
@@ -65,20 +66,25 @@ public class Main {
                         System.out.println("\t\t3. Back");
                         String input2 = in.nextLine();
                         if(input2.equals("1")){
-                            you.attack(curr, new FireStyle(you));
-                            int damageTaken = rand.nextInt(curr.getAtk());
+                            FireballJutsu fireBallJutsu = new FireballJutsu(you);
+                            you.attack(curr, fireBallJutsu);
+                            int damageDealt = fireBallJutsu.getBaseDMG(you,curr);
+                            int damageTaken = 0; //rand.nextInt(curr.getAtk());
                             you.setHP(you.getHP()- damageTaken);
 
+                            System.out.println("\t> You deal " + damageDealt + " with your Fire Ball Jutsu!");
                             System.out.println("\t> You receive " + damageTaken + " in retaliation.");
+
                             attacking = false;
                         } else if (input2.equals("2")){
-                            int damageDealt = rand.nextInt(you.getAtk());
-                            int damageTaken = rand.nextInt(curr.getAtk());
+                            int damageDealt = 3; //rand.nextInt(you.getAtk());
+                            int damageTaken = 0; //rand.nextInt(curr.getAtk());
                             curr.setHP(curr.getHP() - damageDealt);
                             you.setHP(you.getHP()- damageTaken);
 
-                            System.out.println("\t> You strike the "+ currName + "for " + damageDealt + " damage.");
-                            System.out.println("\t> You receive " + damageTaken + " in retaliation.");
+                            System.out.println("\t> You strike the " + currName + " for " + damageDealt + " damage.");
+                            System.out.println("\t> You receive " + damageTaken + " in retaliation.\n");
+
                             attacking = false;
                         } else if (input2.equals("3")){
                             attacking = false;
@@ -109,6 +115,16 @@ public class Main {
                     continue GAME;
                 } else {
                     System.out.println("That's not an option. Type a number or the option");
+                }
+
+                // Status Effect Calculation
+                if(curr.getBurnDuration() > 0){
+                    curr.setBurnDuration(curr.getBurnDuration() - 1);
+                    curr.setHP(curr.getHP() - curr.getBurnDMG());
+                    System.out.println("\t> " + curr.getName() + " takes " + curr.getBurnDMG() + " burn damage! ");
+                    if(curr.getBurnDuration() == 0){
+                        System.out.println("\t> " + curr.getName() + " is no longer on fire!!");
+                    }
                 }
             }
 
