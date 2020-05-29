@@ -13,9 +13,12 @@ public class MudWallJutsu extends EarthStyle {
 
     @Override
     public void applyEffects(Shinobi user) {
-        render();
-        System.out.println(user.getName());
-        user.setChakra(30);
+        if(user.getChakra() > 60) {
+            render();
+            user.setChakra(user.getChakra() - 60);
+        } else {
+            System.out.println("You don't have enough chakra for Mud Wall!!");
+        }
     }
 
     @Override

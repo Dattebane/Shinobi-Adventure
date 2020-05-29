@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2a35a16-12b9-4236-a4f9-3a48e005ce8e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Shinobi_Adventure/com/cpayne/adventure/game/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Shinobi_Adventure/com/cpayne/adventure/game/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/cpayne/adventure/game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cpayne/adventure/game/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/cpayne/adventure/game/jutsu/FireballJutsu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cpayne/adventure/game/jutsu/FireballJutsu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/cpayne/adventure/game/jutsu/MudWall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cpayne/adventure/game/jutsu/MudWallJutsu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/cpayne/adventure/game/jutsu/Ninjutsu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cpayne/adventure/game/jutsu/Ninjutsu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/cpayne/adventure/game/jutsu/Taijutsu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cpayne/adventure/game/jutsu/Taijutsu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/cpayne/adventure/game/shinobi/Shinobi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cpayne/adventure/game/shinobi/Shinobi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/cpayne/adventure/game/shinobi/enemies/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cpayne/adventure/game/shinobi/enemies/Enemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/cpayne/adventure/game/shinobi/player/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cpayne/adventure/game/shinobi/player/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/cpayne/adventure/game/jutsu/MudWallJutsu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cpayne/adventure/game/jutsu/MudWallJutsu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +138,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590702053570</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Added Earth Style: Mud Wall">
+      <created>1590721572196</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1590721572196</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -160,7 +157,8 @@
     <MESSAGE value="Fire Style Burning fully operational" />
     <MESSAGE value="Taijutsu active" />
     <MESSAGE value="Added GUI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added GUI" />
+    <MESSAGE value="Added Earth Style: Mud Wall" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Earth Style: Mud Wall" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1325" y="382" key="#Notifications" timestamp="1590716979422">
@@ -179,10 +177,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="483" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590718968231" />
-    <state x="584" y="88" key="CommitChangelistDialog2" timestamp="1590702052488">
+    <state x="584" y="88" key="CommitChangelistDialog2" timestamp="1590721570508">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="584" y="88" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1590702052488" />
+    <state x="584" y="88" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1590721570508" />
     <state width="914" height="639" key="GridCell.Tab.0.bottom" timestamp="1590721499063">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -199,10 +197,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="914" height="639" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590721499063" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1590702055391">
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1590721574579">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1590702055391" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1590721574579" />
     <state x="1147" y="119" width="585" height="801" key="find.popup" timestamp="1590720176078">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
