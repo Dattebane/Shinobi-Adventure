@@ -52,6 +52,7 @@ public class Player extends Shinobi {
     @Override
     public void setChakra(int chakra) {
         this.chakra = chakra;
+        System.out.println("Player set chakra called");
     }
 
     @Override

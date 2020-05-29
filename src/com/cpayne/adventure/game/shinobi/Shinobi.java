@@ -12,7 +12,7 @@ public abstract class Shinobi {
 
     private int maxHP;
     private int HP;
-    private int chakra;
+    private int chakra = 45;
 
     private int atk;
     private int def;
@@ -46,13 +46,9 @@ public abstract class Shinobi {
         this.HP = HP;
     }
 
-    public int getChakra() {
-        return chakra;
-    }
+    public abstract int getChakra();
 
-    public void setChakra(int chakra) {
-        this.chakra = chakra;
-    }
+    public abstract void setChakra(int chakra);
 
     public int getAtk() {
         return atk;

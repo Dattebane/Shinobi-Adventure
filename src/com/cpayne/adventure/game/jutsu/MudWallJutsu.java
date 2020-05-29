@@ -1,18 +1,21 @@
 package com.cpayne.adventure.game.jutsu;
 
 import com.cpayne.adventure.game.shinobi.Shinobi;
+import com.cpayne.adventure.game.shinobi.player.Player;
 
-public class MudWall extends EarthStyle {
+public class MudWallJutsu extends EarthStyle {
 
     private Shinobi user;
-    MudWall(Shinobi user) {
+    public MudWallJutsu(Shinobi user) {
         super(user);
         this.user = user;
     }
 
     @Override
     public void applyEffects(Shinobi user) {
-        user.setDef(user.getDef() + 20);
+        render();
+        System.out.println(user.getName());
+        user.setChakra(30);
     }
 
     @Override
@@ -47,5 +50,4 @@ public class MudWall extends EarthStyle {
         System.out.println("_|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|_|/|");
         System.out.println("___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|/");
     }
-
 }

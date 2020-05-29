@@ -13,6 +13,7 @@ public class Enemy extends Shinobi {
 
     private int HP;
     private int maxHP = HP;
+    private int chakra;
     private int atk;
     private int def;
 
@@ -23,7 +24,8 @@ public class Enemy extends Shinobi {
         HP = rand.nextInt(1000);
         maxHP = HP;
         atk = 1 + rand.nextInt(1000);
-        def = 0 + rand.nextInt(1000);
+        def = 0 + rand.nextInt(100);
+        chakra = 100;
     }
 
     @Override
@@ -39,6 +41,16 @@ public class Enemy extends Shinobi {
     @Override
     public void setHP(int HP) {
         this.HP = HP;
+    }
+
+    @Override
+    public int getChakra() {
+        return 0;
+    }
+
+    @Override
+    public void setChakra(int chakra) {
+        this.chakra = chakra;
     }
 
     @Override

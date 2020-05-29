@@ -26,7 +26,7 @@ public class FireballJutsu extends FireStyle {
 
     @Override
     public int getDMG(Shinobi user, Shinobi target){
-        return Math.max(1,user.getAtk() - target.getDef());
+        return Math.max(40,user.getAtk()/5 - target.getDef());
     }
 
     public int getBurnAmount() {

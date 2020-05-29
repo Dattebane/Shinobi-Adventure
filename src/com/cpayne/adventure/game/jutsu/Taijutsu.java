@@ -26,6 +26,6 @@ public class Taijutsu extends Jutsu {
     }
 
     public int getDMG(Shinobi user, Shinobi target) {
-        return Math.max(0,rand.nextInt(user.getAtk()) - target.getDef());
+        return Math.max(10,rand.nextInt(user.getAtk()/2) - target.getDef());
     }
 }
