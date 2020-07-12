@@ -46,7 +46,7 @@ public class Main {
             //      # Skeleton has appeared! #
             while(curr.getHP() > 0){
                 //Player Health Bar
-                System.out.println("\t> " + you.getChakra());
+                //System.out.println("\t> " + you.getChakra());
                 System.out.print("\n\tYour HP: "+ you.getHP() + ":");
                 for(int i = 0; i < you.getMaxHP()/10; i++){
                     if (i <= (you.getHP()/10)){
@@ -94,7 +94,7 @@ public class Main {
                                 System.out.println("\t\t\t3. Back");
 
                                 String input3 = in.nextLine();
-                                if (input3.equals("1")) {
+                                if (input3.equals("1")) { // Fireball Jutsu
                                     FireballJutsu fireBallJutsu = new FireballJutsu(you);
                                     int startingHealthE = curr.getHP();
                                     you.attack(curr, fireBallJutsu);
@@ -113,26 +113,28 @@ public class Main {
 
                                     choosingJutsu = false;
                                     attacking = false;
-                                } else if (input3.equals("2")) {
+                                } // Fireball Jutsu
+                                else if (input3.equals("2")) { //Mud Wall Jutsu
                                     MudWallJutsu mudWallJutsu = new MudWallJutsu(you);
+                                    Taijutsu enemyTaijutsu = new Taijutsu(curr);
+
+                                    curr.attack(you, enemyTaijutsu);
                                     you.attack(you, mudWallJutsu);
 
-                                    Taijutsu enemyTaijutsu = new Taijutsu(curr);
-                                    int startingHealth = you.getHP();
-                                    curr.attack(you, enemyTaijutsu);
-                                    you.setHP(you.getHP() + 20);
-                                    int endingHealth = you.getHP();
+                                    int baseDMG = enemyTaijutsu.getDMG(curr, you);
 
-                                    int damageTaken = startingHealth - endingHealth;
+                                    int damageTaken = Math.max((baseDMG - (you.getDef())),0);
+                                    System.out.println(damageTaken);
 
-                                    System.out.println("\t> You receive " + damageTaken + " in retaliation.");
-                                    System.out.println("\t> You negated " + 20 + " damage with your Mud Wall Jutsu!");
+                                    System.out.println("\t> You receive " + damageTaken + " damage.");
+                                    System.out.println("\t> You negated " + (baseDMG - damageTaken) + " damage with your Mud Wall Jutsu!");
 
                                     choosingJutsu = false;
                                     attacking = false;
-                                } else if (input3.equals("3")) {
+                                } // Mud Wall Jutsu
+                                else if (input3.equals("3")) { // Back
                                     choosingJutsu = false;
-                                }
+                                } // Back
                             }
                         }  else if (input2.equals("2")) {
                             Taijutsu playerTaijutsu = new Taijutsu(you);

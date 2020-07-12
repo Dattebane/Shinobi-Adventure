@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d2a35a16-12b9-4236-a4f9-3a48e005ce8e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/cpayne/adventure/game/jutsu/MudWallJutsu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cpayne/adventure/game/jutsu/MudWallJutsu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Shinobi_Adventure/com/cpayne/adventure/game/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Shinobi_Adventure/com/cpayne/adventure/game/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/cpayne/adventure/game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cpayne/adventure/game/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/cpayne/adventure/game/jutsu/FireballJutsu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cpayne/adventure/game/jutsu/FireballJutsu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +147,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590721572196</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Added Earth Style: Mud Wall">
+      <created>1590724469112</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1590724469112</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -169,6 +178,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1590720389911" />
+    <state x="160" y="511" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1594501266752">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="160" y="511" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594501266752" />
     <state x="743" y="414" width="434" height="218" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1590720505208">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -177,34 +190,34 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="483" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590718968231" />
-    <state x="584" y="88" key="CommitChangelistDialog2" timestamp="1590721570508">
+    <state x="584" y="88" key="CommitChangelistDialog2" timestamp="1590724468366">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="584" y="88" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1590721570508" />
-    <state width="914" height="639" key="GridCell.Tab.0.bottom" timestamp="1590721499063">
+    <state x="584" y="88" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1590724468366" />
+    <state width="916" height="298" key="GridCell.Tab.0.bottom" timestamp="1594585107295">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="639" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590721499063" />
-    <state width="914" height="639" key="GridCell.Tab.0.center" timestamp="1590721499063">
+    <state width="916" height="298" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594585107295" />
+    <state width="916" height="298" key="GridCell.Tab.0.center" timestamp="1594585107295">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="639" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590721499063" />
-    <state width="914" height="639" key="GridCell.Tab.0.left" timestamp="1590721499063">
+    <state width="916" height="298" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594585107295" />
+    <state width="916" height="298" key="GridCell.Tab.0.left" timestamp="1594585107295">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="639" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590721499063" />
-    <state width="914" height="639" key="GridCell.Tab.0.right" timestamp="1590721499063">
+    <state width="916" height="298" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594585107295" />
+    <state width="916" height="298" key="GridCell.Tab.0.right" timestamp="1594585107295">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="639" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590721499063" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1590721574579">
+    <state width="916" height="298" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594585107295" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1590724470708">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1590721574579" />
-    <state x="1147" y="119" width="585" height="801" key="find.popup" timestamp="1590720176078">
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1590724470708" />
+    <state x="1147" y="119" width="585" height="801" key="find.popup" timestamp="1594502817770">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1147" y="119" width="585" height="801" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1590720176078" />
+    <state x="1147" y="119" width="585" height="801" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1594502817770" />
     <state x="755" y="267" key="refactoring.ChangeSignatureDialog" timestamp="1590698844727">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

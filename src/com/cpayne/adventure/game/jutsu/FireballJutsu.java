@@ -8,25 +8,28 @@ public class FireballJutsu extends FireStyle {
 
     private final String name = "Fireball Jutsu";
     private int chakraCost = 30;
-    private int burnAmount = 1;
+    private int baseDMG;
+    private int burnAmount;
     private int burnDuration = 3;
 
     public FireballJutsu(Shinobi user) {
         super(user);
+        this.baseDMG = Math.max(40,user.getAtk()/5);
+        this.burnAmount = user.getAtk()/15;
         this.user = user;
     }
 
     @Override
     public void applyEffects(Shinobi target) {
         render();
-        target.setHP(target.getHP() - getDMG(user, target));
+        target.setHP(target.getHP() - baseDMG);
         user.setChakra(user.getChakra() - chakraCost);
         burn(target, this);
     }
 
     @Override
     public int getDMG(Shinobi user, Shinobi target){
-        return Math.max(40,user.getAtk()/5 - target.getDef());
+        return Math.max(40,user.getAtk()/5);
     }
 
     public int getBurnAmount() {
