@@ -5,7 +5,7 @@ import com.cpayne.adventure.game.shinobi.Shinobi;
 
 public class Player extends Shinobi {
     //Properties
-    private String name;
+    private String name = "Nini";
     private int age;
 
     private Jutsu FireballJutsu;
@@ -31,7 +31,7 @@ public class Player extends Shinobi {
 
     @Override
     public String getName() {
-        return super.getName();
+        return name;
     }
 
     @Override
@@ -52,7 +52,7 @@ public class Player extends Shinobi {
     @Override
     public void setChakra(int chakra) {
         this.chakra = chakra;
-        System.out.println("Player set chakra called");
+        //System.out.println("Player set chakra called");
     }
 
     @Override

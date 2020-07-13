@@ -7,9 +7,16 @@ public  abstract class Jutsu {
     Jutsu(Shinobi user){
         this.user = user;
     }
+
     public abstract void applyEffects(Shinobi target);
 
     public abstract String getName();
 
-    //public abstract int getDMG(Shinobi user, Shinobi target);
+    protected abstract int getDMG(Shinobi user, Shinobi target);
+
+    public abstract void render();
+
+    protected abstract void setShield(int value);
+
+    public abstract int getShield();
 }

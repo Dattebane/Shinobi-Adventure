@@ -6,25 +6,38 @@ public class FireballJutsu extends FireStyle {
 
     private Shinobi user;
 
-    private final String name = "Fireball Jutsu";
+    private final String name = "Fire Style: Fireball Jutsu";
     private int chakraCost = 30;
     private int baseDMG;
     private int burnAmount;
-    private int burnDuration = 3;
+    private int burnDuration = 4;
 
     public FireballJutsu(Shinobi user) {
         super(user);
         this.baseDMG = Math.max(40,user.getAtk()/5);
-        this.burnAmount = user.getAtk()/15;
+        this.burnAmount = user.getAtk()/30;
         this.user = user;
     }
 
     @Override
     public void applyEffects(Shinobi target) {
+        int blocked = 0;
+        System.out.println(baseDMG + " incoming damage.");
+        while(target.getShield() > 0 && baseDMG > 0){
+            System.out.println(target.getShield());
+            target.setShield(target.getShield() - 1);
+            target.getShieldReason().setShield(target.getShieldReason().getShield() - 1);
+            baseDMG--;
+            blocked++;
+        }
         render();
         target.setHP(target.getHP() - baseDMG);
+        System.out.println("\t> You deal " + baseDMG + " damage with your Fire Ball Jutsu!");
         user.setChakra(user.getChakra() - chakraCost);
         burn(target, this);
+        if (blocked > 0) {
+            System.out.println("\t> " + blocked + " damage was blocked by " + target.getShieldReason().getName() + " !!!");
+        }
     }
 
     @Override
@@ -44,7 +57,7 @@ public class FireballJutsu extends FireStyle {
         return name;
     }
 
-    private void render(){
+    public void render(){
         System.out.println("                                                                   __________");
         System.out.println("                                                             _.;;;’mmmmmmmmmmmm‘;;;.");
         System.out.println("                                        ----....____....-=’”’”;;MMMMMMMMMMMMMMMMM;;”’\\");
@@ -69,5 +82,15 @@ public class FireballJutsu extends FireStyle {
         System.out.println("                                                       ‘””-CC”ccc.MMMMMMMMMMMMVVMM’”””");
         System.out.println("                                                              ‘”””’’’-=====-‘’”’```");
         System.out.println("                                                                        ```'''");
+    }
+
+    @Override
+    protected void setShield(int value) {
+
+    }
+
+    @Override
+    public int getShield() {
+        return 0;
     }
 }

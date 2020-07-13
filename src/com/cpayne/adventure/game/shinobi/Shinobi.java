@@ -4,11 +4,11 @@ import com.cpayne.adventure.game.jutsu.FireStyle;
 import com.cpayne.adventure.game.jutsu.Jutsu;
 
 public abstract class Shinobi {
+
     //Properties
     private String name = "";
     private int age = 0;
     private int lvl = 1;
-
 
     private int maxHP;
     private int HP;
@@ -17,11 +17,15 @@ public abstract class Shinobi {
     private int atk;
     private int def;
 
-    private boolean isBurning = false;
+    private int shield = 0;
+    private Jutsu shieldReason;
+
+
     private int burnDuration = 0;
     private int burnDMG = 0;
     private FireStyle burnReason;
 
+    private boolean isBurning = false;
     private boolean isPoisoned = false;
     private boolean isGenjutsud = false;
 
@@ -103,4 +107,20 @@ public abstract class Shinobi {
     public abstract int getMaxHP();
 
     public abstract void setMaxHP(int maxHP);
+
+    public int getShield() {
+        return shield;
+    }
+
+    public void setShield(int shield) {
+        this.shield = shield;
+    }
+
+    public Jutsu getShieldReason() {
+        return shieldReason;
+    }
+
+    public void setShieldReason(Jutsu shieldReason) {
+        this.shieldReason = shieldReason;
+    }
 }

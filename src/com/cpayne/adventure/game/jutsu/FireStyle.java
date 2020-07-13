@@ -14,6 +14,7 @@ public abstract class FireStyle extends Ninjutsu {
         target.setBurnDuration(jutsu.getBurnDuration());
         target.setBurnDMG(jutsu);
         target.setBurnReason(jutsu);
+        System.out.println("\t\t> "+ target.getName() + " has been burnt by Fire Style: " + target.getBurnReason().getName() + "!!!");
     };
 
     public abstract int getBurnDuration();

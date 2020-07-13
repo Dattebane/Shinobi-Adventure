@@ -44,11 +44,12 @@ public class Main {
 
             System.out.println("\t# " + currName + " appeared! #\n");
             //      # Skeleton has appeared! #
+            label:
             while(curr.getHP() > 0){
                 //Player Health Bar
                 //System.out.println("\t> " + you.getChakra());
                 System.out.print("\n\tYour HP: "+ you.getHP() + ":");
-                for(int i = 0; i < you.getMaxHP()/10; i++){
+                for(int i = 0; i <= you.getMaxHP()/10; i++){
                     if (i <= (you.getHP()/10)){
                         System.out.print("▇");
                     } else {
@@ -69,130 +70,135 @@ public class Main {
                 System.out.println("\n\tWhat would you like to do?");
                 System.out.println("\t1. Attack");
                 System.out.println("\t2. Drink Health Potion (" + numPots + ")");
-                System.out.println("\t3. Run");
+                System.out.println("\t3. Nigerun da yo! Smokey!!");
 
                 String input = in.nextLine();
-                if(input.equals("1") || input.toLowerCase().contains("attack")){
-                    boolean attacking = true;
-//                    int damageDealt = rand.nextInt(you.getAtk());
-//                    //you.useJutsu(curr);
-//                    int damageTaken = rand.nextInt(curr.getAtk());
-//                    curr.setHP(curr.getHP() - damageDealt);
-//                    you.setHP(you.getHP()- damageTaken);
-                    while (attacking && curr.getHP() > 0){
-                        System.out.println("\tHow do you attack? ");
-                        System.out.println("\t\t1. Ninjutsu");
-                        System.out.println("\t\t2. Taijutu");
-                        System.out.println("\t\t3. Back");
-                        String input2 = in.nextLine();
-                        if(input2.equals("1")) {
-                            boolean choosingJutsu = true;
-                            while (choosingJutsu) {
-                                System.out.println("\t\tWhich Jutsu are you going to use? ");
-                                System.out.println("\t\t\t1. Fire Style: Fireball Jutsu");
-                                System.out.println("\t\t\t2. Earth Style: Mud Wall");
-                                System.out.println("\t\t\t3. Back");
+                switch (input) {
+                    case "1": // Attack
+                        boolean attacking = true;
+                        while (attacking && curr.getHP() > 0) {
+                            System.out.println("\tHow do you attack? ");
+                            System.out.println("\t\t1. Ninjutsu");
+                            System.out.println("\t\t2. Taijutu");
+                            System.out.println("\t\t3. Back");
+                            String input2 = in.nextLine();
+                            switch (input2) {
+                                case "1": // Ninjutsu
+                                    boolean choosingJutsu = true;
+                                    while (choosingJutsu) {
+                                        System.out.println("\t\tWhich Jutsu are you going to use? ");
+                                        System.out.println("\t\t\t1. Fire Style: Fireball Jutsu");
+                                        System.out.println("\t\t\t2. Earth Style: Mud Wall");
+                                        System.out.println("\t\t\t3. Back");
 
-                                String input3 = in.nextLine();
-                                if (input3.equals("1")) { // Fireball Jutsu
-                                    FireballJutsu fireBallJutsu = new FireballJutsu(you);
-                                    int startingHealthE = curr.getHP();
-                                    you.attack(curr, fireBallJutsu);
-                                    int endingHealthE = curr.getHP();
+                                        String input3 = in.nextLine();
+                                        switch (input3) { // Ninjutsu
+                                            case "1": { // Fireball Jutsu
+                                                FireballJutsu fireBallJutsu = new FireballJutsu(you);
+                                                Taijutsu enemyTaijutsu = new Taijutsu(curr, you);
 
-                                    Taijutsu enemyTaijutsu = new Taijutsu(curr);
-                                    int startingHealth = you.getHP();
+                                                you.attack(curr, fireBallJutsu);
+                                                curr.attack(you, enemyTaijutsu);
+
+
+                                                choosingJutsu = false;
+                                                attacking = false;
+                                                break;
+                                            } // Fireball Jutsu
+                                            case "2": { //Mud Wall Jutsu
+                                                int startingShield = you.getShield(); // ex 100
+                                                MudWallJutsu mudWallJutsu = new MudWallJutsu(you);
+                                                Taijutsu enemyTaijutsu = new Taijutsu(curr, you);
+
+                                                curr.attack(you, enemyTaijutsu);
+                                                you.attack(you, mudWallJutsu);
+
+                                                int baseDMG = enemyTaijutsu.getDMG(curr, you); // ex 20
+
+                                                int endingShield = Math.max(startingShield - baseDMG, 0); // 100 - 20 = 80
+                                                int damageTaken = Math.max((baseDMG - startingShield), 0); // ex 20 - 100 = 0
+
+                                                choosingJutsu = false;
+                                                attacking = false;
+                                                break;
+                                            } // Mud Wall
+                                            case "3":  // Back
+                                                choosingJutsu = false;
+                                                break;
+                                        }
+                                    }
+                                    break;
+                                case "2": // Taijutsu
+                                    Taijutsu playerTaijutsu = new Taijutsu(you, curr);
+                                    Taijutsu enemyTaijutsu = new Taijutsu(curr, you);
+
+                                    you.attack(curr, playerTaijutsu);
                                     curr.attack(you, enemyTaijutsu);
-                                    int endingHealth = you.getHP();
 
-                                    int damageDealt = startingHealthE - endingHealthE;
-                                    int damageTaken = startingHealth - endingHealth;
-
-                                    System.out.println("\t> You deal " + damageDealt + " damage with your Fire Ball Jutsu!");
-                                    System.out.println("\t> You receive " + damageTaken + " in retaliation.");
-
-                                    choosingJutsu = false;
                                     attacking = false;
-                                } // Fireball Jutsu
-                                else if (input3.equals("2")) { //Mud Wall Jutsu
-                                    MudWallJutsu mudWallJutsu = new MudWallJutsu(you);
-                                    Taijutsu enemyTaijutsu = new Taijutsu(curr);
-
-                                    curr.attack(you, enemyTaijutsu);
-                                    you.attack(you, mudWallJutsu);
-
-                                    int baseDMG = enemyTaijutsu.getDMG(curr, you);
-
-                                    int damageTaken = Math.max((baseDMG - (you.getDef())),0);
-                                    System.out.println(damageTaken);
-
-                                    System.out.println("\t> You receive " + damageTaken + " damage.");
-                                    System.out.println("\t> You negated " + (baseDMG - damageTaken) + " damage with your Mud Wall Jutsu!");
-
-                                    choosingJutsu = false;
+                                    break;
+                                case "3": // Back
                                     attacking = false;
-                                } // Mud Wall Jutsu
-                                else if (input3.equals("3")) { // Back
-                                    choosingJutsu = false;
-                                } // Back
+                                    break;
                             }
-                        }  else if (input2.equals("2")) {
-                            Taijutsu playerTaijutsu = new Taijutsu(you);
-                            Taijutsu enemyTaijutsu = new Taijutsu(curr);
+                        }
+                        if (you.getHP() < 1) {
+                            System.out.println("You died.");
+                            break label;
+                        }
+                        break;
+                    case "2": // Drink Potion
+                        if (numPots > 0) {
+                            int startingHP = you.getHP();
+                            potPotentcy = you.getMaxHP()/3;
+                            int endingHP = Math.min(you.getHP() + potPotentcy, you.getMaxHP());
+                            int healing = (endingHP)-(startingHP);
+                            you.setHP(endingHP);
+                            numPots--;
+                            System.out.println("\t> You drink a health potion, healing for " + healing
+                                    + "\n\t> You now have " + you.getHP() + " HP!"
+                                    + "\n\t> You have " + numPots + " health potion(s) left.");
 
-                            you.attack(curr, playerTaijutsu);
+                            Taijutsu enemyTaijutsu = new Taijutsu(curr, you);
                             curr.attack(you, enemyTaijutsu);
 
-                            int damageDealt = playerTaijutsu.getDMG(you, curr);
-                            int damageTaken = enemyTaijutsu.getDMG(curr, you);
-
-                            curr.setHP(curr.getHP() - damageDealt);
-                            you.setHP(you.getHP() - damageTaken);
-
-                            System.out.println("\t> You strike the " + currName + " for " + damageDealt + " damage.");
-                            System.out.println("\t> You receive " + damageTaken + " in retaliation.\n");
-
-                            attacking = false;
-                        }  else if (input2.equals("3")) {
-                            attacking = false;
+                        } else {
+                            System.out.println("\t> You have no pots left. Maybe " + currName + " has one...?");
                         }
-                    }
-                    if(you.getHP() < 1){
-                        System.out.println("You died.");
                         break;
-                    }
-                } else if(input.equals("2") || input.toLowerCase().contains("drink") ||input.toLowerCase().contains("health") || input.toLowerCase().contains("potion")){
-                    if (numPots >0){
-                        you.setHP(you.getHP() + potPotentcy);
-                        numPots--;
-
-                        System.out.println("\t> You drink a health potion, healing for " + potPotentcy
-                                + "\n\t> You now have " + you.getHP() + "HP!"
-                                + "\n\t> You have " + numPots + " health potions left.");
-
-
-                    } else {
-                        System.out.println("\t> You have no pots left. Maybe " + currName + " has one...?");
-                    }
-                } else if(input.equals("3") || input.toLowerCase().contains("run")){
-                    System.out.println("\tCoward! You run away from " + currName + " with your tail between your legs...");
-                    continue GAME;
-                } else {
-                    System.out.println("That's not an option. Type a number or the option");
+                    case "3": // Run away
+                        System.out.println("\tCoward! You run away from " + currName + " with your tail between your legs...");
+                        continue GAME;
+                    default:
+                        System.out.println("That's not an option. Type a number or the option");
+                        break;
                 }
 
                 // Status Effect Calculation
-                if(curr.getBurnDuration() > 0){
-                    if(curr.getBurnDuration() == curr.getBurnReason().getBurnDuration()){
-                        System.out.println("\t> "+ curr.getName() + " has been burnt by Fire Style: " + curr.getBurnReason().getName() + "!!!");
-                    }
-                    curr.setBurnDuration(curr.getBurnDuration() - 1);
-                    curr.setHP(curr.getHP() - curr.getBurnDMG());
-                    System.out.println("\t> " + curr.getName() + " takes " + curr.getBurnDMG() + " burn damage! ");
-                    if(curr.getBurnDuration() == 0){
-                        System.out.println("\t> " + curr.getName() + " is no longer on fire!!");
+
+                // Player Status
+                if(you.getShield() > 0){
+                    if (you.getShield() != you.getShieldReason().getShield()){
+                        System.out.println("\t> You still have a " + you.getShield() + " HP Shield left!");
+                        you.getShieldReason().render();
                     }
                 }
+
+                // Enemy Status
+                if (curr.isBurning()){
+                    if (curr.getBurnDuration() == curr.getBurnReason().getBurnDuration()){
+                        curr.setBurnDuration(curr.getBurnDuration() - 1);
+                    } else if(curr.getBurnDuration() > 0 && curr.getBurnDuration() < curr.getBurnReason().getBurnDuration()){
+                        curr.setBurnDuration(curr.getBurnDuration() - 1);
+                        curr.setHP(curr.getHP() - curr.getBurnDMG());
+                        System.out.println("\t\t> " + curr.getName() + " takes " + curr.getBurnDMG() + " burn damage! ");
+                        if(curr.getBurnDuration() == 0){
+                            System.out.println("\t\t> " + curr.getName() + " is no longer on fire!!");
+                            curr.setBurning(false);
+                        }
+                    }
+                }
+
             }
 
             if (you.getHP() < 1){
